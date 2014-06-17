@@ -31,7 +31,7 @@ public class PiUI extends UI {
 	@WebServlet(value = "/*", asyncSupported = true)
 	@VaadinServletConfiguration(productionMode = false, ui = PiUI.class, widgetset = "com.projeto.pi.widgetset.PiWidgetset")
 	public static class Servlet extends VaadinServlet {
-///////////////////////////////////////////////////////////////////////
+
 	}
 
 	@Override
