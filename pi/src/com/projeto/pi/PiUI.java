@@ -9,10 +9,13 @@ import com.vaadin.tapio.googlemaps.GoogleMap;
 import com.vaadin.tapio.googlemaps.client.LatLon;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
@@ -36,10 +39,10 @@ public class PiUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest request) {
-		HorizontalLayout content = new HorizontalLayout();
-		content.setSizeFull();
-		setContent(content);
-		                                                                                                                                                                                 
+		HorizontalLayout main = new HorizontalLayout();
+		main.setSizeFull();
+		setContent(main);
+		/*                                                                                                                                                                    
 		Panel panelui = new Panel();
 		panelui.setHeight("500px");
 		panelui.setWidth("900px"); 
@@ -69,8 +72,33 @@ public class PiUI extends UI {
 	panelui.setContent(map);
 
 		 content.addComponent(panelui);
+*/
+		Panel panel = new Panel("Login");
+		panel.setSizeUndefined();
+		main.addComponent(panel);
 
-	      
+
+		// Create custom layout from "layoutname.html" template.
+		CustomLayout custom = new CustomLayout("layoutname");
+		custom.addStyleName("customlayoutexample");
+
+
+		// Use it as the layout of the Panel.
+		panel.setContent(custom);
+
+
+		// Create a few components and bind them to the location tags
+		// in the custom layout.
+		TextField username = new TextField();
+		custom.addComponent(username, "username");
+
+
+		TextField password = new TextField();
+		custom.addComponent(password, "password");
+
+
+		Button ok = new Button("Login");
+		custom.addComponent(ok, "okbutton");      
 	        
 	        
 	}
